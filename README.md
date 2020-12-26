@@ -25,6 +25,16 @@ For those of you using `use-package.el`,
   (add-hook 'markdown-mode-hook 'ospl-mode))
 ```
 
+Or better yet via `DOOM-emacs`
+
+```elisp
+;; in ~/.doom.d/packages.el
+(package! ospl-mode
+  :recipe (:host github
+           :repo "arrdem/ospl-mode"
+           :branch "v0.1.0"))
+```
+
 ## License
 
 This code was derived from [this StackOverflow answer](https://emacs.stackexchange.com/a/473), which bears no license.
