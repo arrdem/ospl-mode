@@ -101,7 +101,7 @@
 
 (defun ospl/markdown-in-quotation-p ()
   (save-mark-and-excursion
-    (re-search-backward ">" (line-beginning-position nil))))
+    (re-search-backward ">" (line-beginning-position) t)))
 
 (defun ospl/unfill-region (start end)
   "Unfill the region, joining text paragraphs into a single
@@ -118,7 +118,10 @@
   (save-mark-and-excursion
     (goto-char start)
     (while (re-search-forward "[:;.?!][]\"')}]*\\( \\)" end t)
-      (call-interactively (key-binding (kbd "M-j"))))))
+      (let ((in-quote (ospl/markdown-in-quotation-p)))
+        (call-interactively (key-binding (kbd "M-j")))
+        (if in-quote
+            (insert "> "))))))
 
 (defun ospl/fill-sentences-in-paragraph ()
   "Put a newline at the end of each sentence in paragraph."
