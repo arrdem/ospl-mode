@@ -96,8 +96,8 @@
 (defun ospl/markdown-in-yaml-header-p ()
   "Returns 't if the point is in a Jekyll YAML header"
   (ospl/token-inbetween
-   "---"
-   "---"))
+   "\`---\n"
+   "---\n"))
 
 (defun ospl/markdown-in-quotation-p ()
   (save-mark-and-excursion
