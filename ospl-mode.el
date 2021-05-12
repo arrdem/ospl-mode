@@ -101,7 +101,7 @@
 
 (defun ospl/markdown-in-quotation-p ()
   (save-mark-and-excursion
-    (re-search-backward ">" (line-beginning-position) t)))
+    (re-search-backward "^>" (line-beginning-position) t)))
 
 (defun ospl/unfill-region (start end)
   "Unfill the region, joining text paragraphs into a single
